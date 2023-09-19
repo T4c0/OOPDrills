@@ -115,7 +115,7 @@ console.log(color,make,model,year)
 
 function greeting( obj ) {
   //Code Here
-  
+  const {firstName, lastName, title} = greeting;
   
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
@@ -135,6 +135,18 @@ function greeting( obj ) {
 */
 
 //Code Here
+// const states = {
+//   utah:5 ,
+//   california:5,
+//   texas:5,
+//   arizona:5,
+// }
+const totalPopulation = (obj) => {
+  const {utah,california,texas,arizona} =obj
+  return utah+california+texas+arizona
+}
+
+// console.log(totalPopulation(states))
 
 
 
@@ -150,6 +162,20 @@ function greeting( obj ) {
 
 //Code Here
 
+// const steak = {
+//   carb: 5,
+//   fat: 5,
+//   protein: 5,
+// }
+
+const ingredients = (obj) => {
+  let arr = []
+  const {carb,fat,protein} = obj
+  arr.push(carb,fat,protein)
+  return arr
+}
+
+// console.log(ingredients(steak))
 
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
@@ -171,6 +197,9 @@ var user = {
 */
 
 //Code Here
+user.name = 'Bryan G. Smith'
+user.email = 'bryan.smith@devmounta.in'
+// console.log(user.name, user.email)
 
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
@@ -179,6 +208,8 @@ var user = {
 */
 
 //Code Here
+delete user.age
+// console.log({user})
 
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
@@ -189,7 +220,16 @@ var user = {
 */
 
 //Code here
+class Cat {
+  constructor(name, age, color) {
+    this.name = name;
+    this.age = age;
+    this.color = color;
+  }
+}
 
+let cat1 = new Cat("Salem", 3, "black")
+console.log(cat1.name)
 
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
@@ -201,6 +241,21 @@ var user = {
 */
 
 //Code here
+class Wizard {
+  constructor(name, age, favoriteSpell){
+    this.name = name;
+    this.age = age;
+    this.favoriteSpell = favoriteSpell;
+  }
+  castSpell(){
+    console.log(`${this.name} has cast ${this.favoriteSpell}`)
+  }
+}
+
+let wizard1 = new Wizard("Dumbledore", 1000,"Avada Kedavra")
+  console.log(wizard1.castSpell())
+
+
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -226,6 +281,23 @@ var user = {
 */
 
 //Code Here
+class Phone {
+  constructor(brand, model, storage, color, price) {
+    this.sold = false;
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage;
+    this.color = color;
+    this.price = price;
+  }
+    sell(){
+      this.sold = true;
+      console.log(`${this.brand} ${this.model} has been sold`)
+    }
+    changePrice(newPrice) {
+      this.price = newPrice
+    }
+}
 
   
 /*
@@ -240,6 +312,10 @@ var user = {
 
 //Code Here
 
+let phone1 = new Phone('Iphone', '11', 50, 'white', '$1000')
+let phone2 = new Phone('Android', '12', 150, 'black', '$1050')
+let phone3 = new Phone('Iphone', '15', 200, 'gold', '$2000')
+
 /* 
   Call the changePrice function on one of your phones, 
   don't forget to pass in a new price 
@@ -248,6 +324,8 @@ var user = {
 */ 
 
 //Code Here 
+phone1.changePrice(2000)
+console.log({phone1})
 
 
 /*
@@ -257,6 +335,8 @@ var user = {
 */
 
 //Code Here 
+phone2.sell()
+console.log(phone2)
 
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
@@ -276,6 +356,9 @@ const colors = {
 //do not edit this object
 
 //Code Here 
+let colorsCopy = {...colors}
+console.log(colorsCopy)
+
 
 
 
@@ -304,10 +387,11 @@ const shippingInfo = {
 //do not edit the objects above
 
 //Code Here
+let helensInfo = {...contactInfo, ...shippingInfo}
 
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
-
+console.log(helensInfo)
 
 //////////////////////////// PROBLEM 16 ////////////////////////////
 
