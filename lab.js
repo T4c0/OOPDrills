@@ -253,7 +253,7 @@ class Wizard {
 }
 
 let wizard1 = new Wizard("Dumbledore", 1000,"Avada Kedavra")
-  console.log(wizard1.castSpell())
+  wizard1.castSpell()
 
 
 
@@ -406,6 +406,23 @@ console.log(helensInfo)
 */
 
 //Code Here 
+class Vehicle {
+  constructor(capacity, color, mileage) {
+    this.capacity= capacity;
+    this.color = color;
+    this.mileage = mileage
+  }
+
+  move(miles) {
+    this.mileage += miles
+    console.log(this.mileage)
+  }
+}
+
+const vehicle1 = new Vehicle(4, 'red', 100000)
+vehicle1.move(100)
+vehicle1.move(100)
+vehicle1.move(100)
 
 
 /*
@@ -413,6 +430,7 @@ console.log(helensInfo)
 */
 
 //Code Here
+const myFirstVehicle = new Vehicle(4,'blue',0) 
 
 
 /* 
@@ -424,16 +442,26 @@ console.log(helensInfo)
 */
 
 //Code Here
+class Motorcycle extends Vehicle {
+  constructor(make, isCool,capacity, color, mileage) {
+    super(capacity,color, mileage)
+    this.make = make;
+    this.isCool = isCool;
+  }
+}
 
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
 //Code Here 
+const myFirstMotorcycle = new Motorcycle('Yamaha', true, 2, 'red', 150)
 
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
 */
+myFirstMotorcycle.move(1000)
+console.log(myFirstMotorcycle)
 
 /*
   Let's make another class based off of Vehicle. 
@@ -452,6 +480,26 @@ console.log(helensInfo)
 */
 
 //Code Here
+class Boat extends Vehicle {
+  constructor(capacity, color, mileage, name, type, isSeaworthy) {
+    super(capacity,color,mileage)
+    this.name = name;
+    this.type = type;
+    this.isSeaworthy = isSeaworthy;
+  }
+
+  checkSeaworthiness() {
+    if(this.isSeaworthy) {
+      console.log(`The ${this.color} ${this.type} ${this.name} is seaworthy!`)
+    }
+    else {
+      console.log(`You need to get your ${this.type} in shape!`)
+    }
+  }
+  performanceMaintenance() {
+    this.isSeaworthy = true
+  }
+}
 
 
 /*
@@ -460,21 +508,26 @@ console.log(helensInfo)
 */
 
 //Code Here
+const myFirstBoat = new Boat(12,'white',500,'Plunder','JetBoat',false)
+console.log(myFirstBoat)
 
 /*
   Call the checkSeaworthiness method on your new boat
 */
 
 //Code Here
+myFirstBoat.checkSeaworthiness()
 
 /*
   Now run the performMaintenance method on your boat
 */
 
 //Code Here 
+myFirstBoat.performanceMaintenance()
 
 /*
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
 //Code Here
+myFirstBoat.checkSeaworthiness()
